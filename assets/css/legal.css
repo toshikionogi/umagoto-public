@@ -1,0 +1,142 @@
+/* ==========================================================================
+   ウマゴト サービスサイト - 法務・お問い合わせページ スタイル（コンポーネント用）
+
+   ページ全体を包む幅・中央寄せ・余白（旧 .legal-main / 各コンテナの
+   max-width+margin）はTailwindユーティリティに置き換え、各HTMLファイル側の
+   ラッパーdivに直接付与する（モバイルで左右余白が消えていたバグは、この
+   置き換えで .wrap との padding 競合が解消されて直る）。
+   このファイルには、法務文書本文（Markdown原稿から機械生成される見出し・
+   段落・リスト・表）のような「深くネストした生成コンテンツ」の組版と、
+   TOC/お問い合わせカードといった小さな自己完結コンポーネントの見た目だけを残す。
+   style.css のトークンに追加して読み込む。
+   ========================================================================== */
+
+.legal-header h1 {
+  font-size: 1.7rem;
+  margin: 0 0 8px;
+}
+.legal-header .legal-meta {
+  color: var(--color-brown-faint);
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+/* 目次（自己完結コンポーネント） ------------------------------------------- */
+.legal-toc {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.legal-toc h2 {
+  font-size: 1rem;
+  margin: 0 0 12px;
+}
+.legal-toc ol {
+  margin: 0;
+  padding-left: 1.4em;
+}
+.legal-toc li {
+  margin: 0 0 6px;
+}
+.legal-toc a {
+  text-decoration: none;
+  color: var(--color-brown-soft);
+}
+.legal-toc a:hover,
+.legal-toc a:focus-visible {
+  color: var(--color-brown);
+  text-decoration: underline;
+}
+
+/* 法務文書本文（Markdownから機械生成される組版） ----------------------------- */
+.legal-body h2 {
+  font-size: 1.25rem;
+  margin: 48px 0 18px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-border);
+}
+.legal-body h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+.legal-body h3 {
+  font-size: 1.05rem;
+  margin: 32px 0 12px;
+}
+.legal-body p {
+  margin: 0 0 16px;
+  color: var(--color-brown-soft);
+}
+.legal-body ol,
+.legal-body ul {
+  margin: 0 0 16px;
+  padding-left: 1.5em;
+  color: var(--color-brown-soft);
+}
+.legal-body li {
+  margin: 0 0 8px;
+}
+.legal-body li > ol,
+.legal-body li > ul {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+.legal-body a {
+  color: var(--color-brown);
+  text-decoration-color: var(--color-border-strong);
+}
+.legal-body strong {
+  color: var(--color-brown);
+}
+
+.table-scroll {
+  overflow-x: auto;
+  margin: 0 0 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+.legal-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  min-width: 480px;
+}
+.legal-body th,
+.legal-body td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+.legal-body thead th {
+  background: var(--color-bg-alt);
+  font-weight: 700;
+}
+.legal-body tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.legal-footer-note {
+  border-top: 1px solid var(--color-border);
+  color: var(--color-brown-faint);
+  font-size: 0.85rem;
+}
+
+/* お問い合わせカード（自己完結コンポーネント） -------------------------------- */
+.contact-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.contact-card .mail-link {
+  display: inline-block;
+  margin: 16px 0 20px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-brown);
+}
+.contact-card p {
+  color: var(--color-brown-soft);
+  margin: 0 0 12px;
+}

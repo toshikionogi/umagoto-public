@@ -1,0 +1,11 @@
+# 内部ドキュメント（GitHub Pagesのルート公開対象から除外）
+CLAUDE.md
+ウマゴトのサービスサイト構築要件整理.md
+/sources/
+
+# OS
+.DS_Store
+
+# Tailwind CLI（スタンドアロン実行ファイル。ビルド手順は CLAUDE.md 参照）
+/tailwindcss
+

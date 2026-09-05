@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="812" viewBox="0 0 375 812" role="img" aria-label="投稿をマップで振り返る画面のスクリーンショット（仮素材）">
+  <!-- TODO: 仮置き画像。実機スクリーンショット（マップ）に差し替える -->
+  <rect width="375" height="812" fill="#FCF2E2"/>
+  <rect x="14" y="14" width="347" height="784" rx="28" fill="#FFFFFF" stroke="#483222" stroke-width="3"/>
+  <rect x="14" y="14" width="347" height="44" rx="28" fill="#483222"/>
+  <rect x="14" y="44" width="347" height="14" fill="#483222"/>
+  <circle cx="181.5" cy="70" r="7" fill="#4CA626"/>
+  <circle cx="193.5" cy="70" r="7" fill="#4CA626"/>
+  <text x="187.5" y="373.52000000000004" text-anchor="middle" font-family="-apple-system, 'Hiragino Sans', sans-serif" font-size="20" font-weight="600" fill="#483222">マップ</text>
+  <text x="187.5" y="399.52000000000004" text-anchor="middle" font-family="-apple-system, 'Hiragino Sans', sans-serif" font-size="13" fill="#483222" opacity="0.6">仮素材 / Placeholder</text>
+</svg>

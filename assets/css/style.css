@@ -1,0 +1,248 @@
+/* ==========================================================================
+   ウマゴト サービスサイト - 共通 / トップページ スタイル（コンポーネント用）
+
+   レイアウト（.wrap・セクションの余白・カードのグリッド・ヘッダー/フッターの
+   並び・レスポンシブ分岐など、ページ間で繰り返される構造）は各HTMLファイル側で
+   Tailwindのユーティリティクラスを使う。このファイルには、ボタンやバッジ、
+   skip-linkのような自己完結した小さなコンポーネントの見た目（配色・タイポ
+   グラフィ・角丸/境界線・フォーカス/モーション対応）だけを残す。
+   デザイントークンと運用ルールは CLAUDE.md を参照。
+   ========================================================================== */
+
+:root {
+  --color-bg: #ffffff;
+  --color-bg-alt: rgb(254, 253, 250);
+  --color-cream: #fcf2e2;
+  --color-surface: #ffffff;
+  --color-brown: #483222;
+  --color-brown-soft: #6b5644;
+  --color-brown-faint: #7f6b5a;
+  --color-green: #397e1c;
+  --color-border: rgba(72, 50, 34, 0.14);
+  --color-border-strong: rgba(72, 50, 34, 0.28);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP", "Yu Gothic", sans-serif;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-brown);
+  font-family: var(--font-sans);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+/* Skip link（自己完結コンポーネント） ------------------------------------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--color-brown);
+  color: var(--color-cream);
+  padding: 10px 16px;
+  border-radius: 0 0 var(--radius-sm) 0;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* Header ----------------------------------------------------------------- */
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--color-border);
+}
+.site-logo {
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  color: var(--color-brown);
+}
+
+/* Sections（背景色のみ。余白・グリッドはTailwind） -------------------------- */
+section.alt {
+  background: var(--color-bg-alt);
+}
+.section-head p {
+  color: var(--color-brown-soft);
+}
+
+/* Eyebrowラベル（自己完結コンポーネント） --------------------------------- */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--color-green);
+  margin-bottom: 6px;
+}
+
+/* Hero ---------------------------------------------------------------------- */
+.hero-copy h1 {
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+  line-height: 1.5;
+}
+.hero-copy .lede {
+  font-size: 1.05rem;
+  color: var(--color-brown-soft);
+}
+.hero-visual img {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+/* App Store バッジ / CTA（自己完結コンポーネント） -------------------------- */
+.store-badge-link {
+  display: inline-flex;
+  line-height: 0;
+  border-radius: var(--radius-sm);
+}
+.store-badge-link img {
+  height: 52px;
+  width: auto;
+}
+.store-badge-link[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.55;
+  filter: grayscale(35%);
+}
+.cta-note {
+  font-size: 0.82rem;
+  color: var(--color-brown-faint);
+}
+
+/* Empathy cards --------------------------------------------------------------- */
+.empathy-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.empathy-card p.trouble {
+  font-weight: 700;
+}
+.empathy-card p.resolve {
+  color: var(--color-brown-soft);
+}
+
+/* Feature flow ------------------------------------------------------------------ */
+.feature-copy h3 {
+  font-size: 1.25rem;
+}
+.feature-copy p {
+  color: var(--color-brown-soft);
+}
+.feature-visual img {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+/* 利用フロー（自己完結の装飾コンポーネント） --------------------------------- */
+.flow-index {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 48px;
+  color: var(--color-brown-faint);
+  font-size: 0.85rem;
+}
+.flow-index span:not(:last-child)::after {
+  content: "→";
+  margin-left: 10px;
+  color: var(--color-green);
+}
+
+/* Trust --------------------------------------------------------------------------- */
+.trust-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+.trust-item h3 {
+  font-size: 1rem;
+}
+.trust-item p {
+  color: var(--color-brown-soft);
+  font-size: 0.92rem;
+}
+
+/* Final CTA ------------------------------------------------------------------------- */
+.final-cta h2 {
+  font-size: 1.6rem;
+}
+.final-cta p.lede {
+  color: var(--color-brown-soft);
+}
+
+/* Footer ----------------------------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+}
+.footer-nav ul {
+  font-size: 0.88rem;
+}
+.footer-nav a {
+  text-decoration: none;
+  color: var(--color-brown-soft);
+}
+.footer-nav a:hover,
+.footer-nav a:focus-visible {
+  color: var(--color-brown);
+}
+.footer-nav .is-disabled {
+  color: var(--color-brown-faint);
+  cursor: default;
+}
+.footer-meta {
+  font-size: 0.8rem;
+  color: var(--color-brown-faint);
+}
+
+/* Buttons（自己完結コンポーネント） -------------------------------------------------- */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 12px 26px;
+  font-size: 0.95rem;
+}
+.btn-primary {
+  background: var(--color-brown);
+  color: var(--color-cream);
+}
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: #3a281b;
+}
+
+/* Motion ------------------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Focus visibility ----------------------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-green);
+  outline-offset: 2px;
+}
