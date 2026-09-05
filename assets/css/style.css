@@ -20,19 +20,33 @@
   --color-green: #397e1c;
   --color-border: rgba(72, 50, 34, 0.14);
   --color-border-strong: rgba(72, 50, 34, 0.28);
-  --font-sans: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
-    "Noto Sans JP", "Yu Gothic", sans-serif;
+  --font-sans: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   --radius-lg: 24px;
   --radius-md: 16px;
   --radius-sm: 10px;
   color-scheme: light;
+
+  /* フォントサイズ（CLAUDE.md「フォントサイズのルール」参照） */
+  --font-size-fine: 0.75rem; /* 12px 著作権表記など最小限の情報のみ */
+  --font-size-caption: 0.875rem; /* 14px 補足・注釈・メタ情報 */
+  --font-size-body: 1rem; /* 16px 本文 */
+  --font-size-lead: 1.125rem; /* 18px リード文 */
+  --font-size-heading-sm: 1.25rem; /* 20px カード見出し・H3 */
+  --font-size-heading-md: 1.5rem; /* 24px セクション見出し・H2 */
+  --font-size-heading-lg: 2rem; /* 32px ページタイトル・H1 */
+  --font-size-display: 3rem; /* 48px Hero */
+
+  --line-height-body: 1.7;
+  --line-height-heading: 1.3;
 }
 
 body {
   background: var(--color-bg);
   color: var(--color-brown);
   font-family: var(--font-sans);
-  line-height: 1.8;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -62,7 +76,8 @@ a {
 }
 .site-logo {
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: var(--font-size-heading-sm);
+  line-height: var(--line-height-heading);
   text-decoration: none;
   color: var(--color-brown);
 }
@@ -71,6 +86,11 @@ a {
 section.alt {
   background: var(--color-bg-alt);
 }
+.section-head h2 {
+  font-size: var(--font-size-heading-md);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
+}
 .section-head p {
   color: var(--color-brown-soft);
 }
@@ -78,7 +98,8 @@ section.alt {
 /* Eyebrowラベル（自己完結コンポーネント） --------------------------------- */
 .eyebrow {
   display: inline-block;
-  font-size: 0.78rem;
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-heading);
   letter-spacing: 0.08em;
   font-weight: 700;
   color: var(--color-green);
@@ -87,11 +108,12 @@ section.alt {
 
 /* Hero ---------------------------------------------------------------------- */
 .hero-copy h1 {
-  font-size: clamp(1.7rem, 5vw, 2.6rem);
-  line-height: 1.5;
+  font-size: clamp(var(--font-size-heading-lg), 5vw, var(--font-size-display));
+  font-weight: 700;
+  line-height: var(--line-height-heading);
 }
 .hero-copy .lede {
-  font-size: 1.05rem;
+  font-size: var(--font-size-lead);
   color: var(--color-brown-soft);
 }
 .hero-visual img {
@@ -115,7 +137,7 @@ section.alt {
   filter: grayscale(35%);
 }
 .cta-note {
-  font-size: 0.82rem;
+  font-size: var(--font-size-caption);
   color: var(--color-brown-faint);
 }
 
@@ -134,7 +156,9 @@ section.alt {
 
 /* Feature flow ------------------------------------------------------------------ */
 .feature-copy h3 {
-  font-size: 1.25rem;
+  font-size: var(--font-size-heading-sm);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
 }
 .feature-copy p {
   color: var(--color-brown-soft);
@@ -152,7 +176,7 @@ section.alt {
   gap: 10px;
   margin-bottom: 48px;
   color: var(--color-brown-faint);
-  font-size: 0.85rem;
+  font-size: var(--font-size-caption);
 }
 .flow-index span:not(:last-child)::after {
   content: "→";
@@ -167,18 +191,23 @@ section.alt {
   background: var(--color-surface);
 }
 .trust-item h3 {
-  font-size: 1rem;
+  font-size: var(--font-size-heading-sm);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
 }
 .trust-item p {
   color: var(--color-brown-soft);
-  font-size: 0.92rem;
+  font-size: var(--font-size-body);
 }
 
 /* Final CTA ------------------------------------------------------------------------- */
 .final-cta h2 {
-  font-size: 1.6rem;
+  font-size: var(--font-size-heading-md);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
 }
 .final-cta p.lede {
+  font-size: var(--font-size-lead);
   color: var(--color-brown-soft);
 }
 
@@ -188,7 +217,7 @@ section.alt {
   background: var(--color-bg-alt);
 }
 .footer-nav ul {
-  font-size: 0.88rem;
+  font-size: var(--font-size-caption);
 }
 .footer-nav a {
   text-decoration: none;
@@ -203,7 +232,7 @@ section.alt {
   cursor: default;
 }
 .footer-meta {
-  font-size: 0.8rem;
+  font-size: var(--font-size-fine);
   color: var(--color-brown-faint);
 }
 
@@ -214,7 +243,8 @@ section.alt {
   font-weight: 700;
   border-radius: 999px;
   padding: 12px 26px;
-  font-size: 0.95rem;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-heading);
 }
 .btn-primary {
   background: var(--color-brown);

@@ -12,12 +12,14 @@
    ========================================================================== */
 
 .legal-header h1 {
-  font-size: 1.7rem;
+  font-size: var(--font-size-heading-lg);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
   margin: 0 0 8px;
 }
 .legal-header .legal-meta {
   color: var(--color-brown-faint);
-  font-size: 0.88rem;
+  font-size: var(--font-size-caption);
   margin: 0;
 }
 
@@ -28,7 +30,9 @@
   border-radius: var(--radius-md);
 }
 .legal-toc h2 {
-  font-size: 1rem;
+  font-size: var(--font-size-heading-sm);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
   margin: 0 0 12px;
 }
 .legal-toc ol {
@@ -50,7 +54,9 @@
 
 /* 法務文書本文（Markdownから機械生成される組版） ----------------------------- */
 .legal-body h2 {
-  font-size: 1.25rem;
+  font-size: var(--font-size-heading-md);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
   margin: 48px 0 18px;
   padding-top: 8px;
   border-top: 1px solid var(--color-border);
@@ -61,7 +67,9 @@
   border-top: none;
 }
 .legal-body h3 {
-  font-size: 1.05rem;
+  font-size: var(--font-size-heading-sm);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
   margin: 32px 0 12px;
 }
 .legal-body p {
@@ -99,8 +107,8 @@
 .legal-body table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9rem;
-  min-width: 480px;
+  font-size: var(--font-size-body);
+  min-width: 560px;
 }
 .legal-body th,
 .legal-body td {
@@ -120,7 +128,7 @@
 .legal-footer-note {
   border-top: 1px solid var(--color-border);
   color: var(--color-brown-faint);
-  font-size: 0.85rem;
+  font-size: var(--font-size-caption);
 }
 
 /* お問い合わせカード（自己完結コンポーネント） -------------------------------- */
@@ -132,7 +140,7 @@
 .contact-card .mail-link {
   display: inline-block;
   margin: 16px 0 20px;
-  font-size: 1.15rem;
+  font-size: var(--font-size-lead);
   font-weight: 700;
   color: var(--color-brown);
 }
